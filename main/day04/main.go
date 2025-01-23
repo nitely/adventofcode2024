@@ -3,7 +3,6 @@ package main
 import (
 	"adventofgo2024/main/utils"
 	"fmt"
-	"strings"
 )
 
 type Direction int
@@ -47,7 +46,7 @@ func next(i, j int, dir Direction) (int, int) {
 	return i, j
 }
 
-func xmasCheck(i, j int, s []string, dir Direction, word string) int {
+func xmasCheck(i, j int, s [][]byte, dir Direction, word string) int {
 	for k := range word {
 		if i < 0 || j < 0 || i >= len(s) || j >= len(s[0]) {
 			return 0
@@ -60,7 +59,7 @@ func xmasCheck(i, j int, s []string, dir Direction, word string) int {
 	return 1
 }
 
-func xmasCount(i, j int, s []string) int {
+func xmasCount(i, j int, s [][]byte) int {
 	result := 0
 	dirs := []Direction{up, down, left, right, diagldown, diaglup, diagrdown, diagrup}
 	for _, dir := range dirs {
@@ -69,7 +68,7 @@ func xmasCount(i, j int, s []string) int {
 	return result
 }
 
-func part1(s []string) {
+func part1(s [][]byte) {
 	result := 0
 	for i, line := range s {
 		for j := range line {
@@ -79,7 +78,7 @@ func part1(s []string) {
 	fmt.Println(result)
 }
 
-func xmasCount2(i, j int, s []string) int {
+func xmasCount2(i, j int, s [][]byte) int {
 	const word = "MAS"
 	if xmasCheck(i, j, s, diagrdown, word)+xmasCheck(i+2, j+2, s, diaglup, word) > 0 {
 		if xmasCheck(i, j+2, s, diagldown, word)+xmasCheck(i+2, j, s, diagrup, word) > 0 {
@@ -89,7 +88,7 @@ func xmasCount2(i, j int, s []string) int {
 	return 0
 }
 
-func part2(s []string) {
+func part2(s [][]byte) {
 	result := 0
 	for i, line := range s {
 		for j := range line {
@@ -100,10 +99,8 @@ func part2(s []string) {
 }
 
 func main() {
-	s := utils.MustReadFile("input.txt")
-	s = strings.Trim(s, "\n")
-	lines := strings.Split(s, "\n")
-	part1(lines)
-	part2(lines)
+	lines := utils.ByteLines("input.txt")
+	part1(lines) // 2599
+	part2(lines) // 1948
 	fmt.Println("ok")
 }
