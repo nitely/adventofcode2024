@@ -101,10 +101,8 @@ func part2(s []string) {
 
 func main() {
 	s := utils.MustReadFile("input.txt")
+	s = strings.Trim(s, "\n")
 	lines := strings.Split(s, "\n")
-	if lines[len(lines)-1] == "" {
-		lines = lines[:len(lines)-1]
-	}
 	part1(lines)
 	part2(lines)
 	fmt.Println("ok")
