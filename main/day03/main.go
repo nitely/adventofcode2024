@@ -1,9 +1,10 @@
 package main
 
 import (
-	"adventofgo2024/main/utils"
 	"fmt"
 	"regexp"
+
+	"github.com/nitely/adventofgo2024/main/utils"
 )
 
 func muls(s string) int {

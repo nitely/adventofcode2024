@@ -1,11 +1,12 @@
 package main
 
 import (
-	"adventofgo2024/main/utils"
 	"fmt"
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/nitely/adventofgo2024/main/utils"
 )
 
 func calc(target int, nums []int, i, acc int) bool {

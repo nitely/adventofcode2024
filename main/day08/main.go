@@ -1,8 +1,9 @@
 package main
 
 import (
-	"adventofgo2024/main/utils"
 	"fmt"
+
+	"github.com/nitely/adventofgo2024/main/utils"
 )
 
 type pos struct {

@@ -1,9 +1,10 @@
 package main
 
 import (
-	"adventofgo2024/main/utils"
 	"fmt"
 	"strings"
+
+	"github.com/nitely/adventofgo2024/main/utils"
 )
 
 func part1(rules map[int]map[int]bool, pages [][]int) {
