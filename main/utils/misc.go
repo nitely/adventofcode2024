@@ -24,3 +24,14 @@ func Abs(x int) int {
 	}
 	return x
 }
+
+func MakeMatrix[T any](rows, cols int, initialValue T) [][]T {
+	matrix := make([][]T, rows)
+	for i := range matrix {
+		matrix[i] = make([]T, cols)
+		for j := range matrix[i] {
+			matrix[i][j] = initialValue
+		}
+	}
+	return matrix
+}
